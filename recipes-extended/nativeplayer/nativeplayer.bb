@@ -3,7 +3,7 @@ DESCRIPTION = "A reference native  player for RDK-E"
 HOMEPAGE = "https://github.com/rdkcentral/nativeplayerservice"
 SECTION = "apps"
 
-LICENSE = "Apache License 2.0"
+LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b17644be83787a32dcf1830fa4b0c64b"
 
 PV = "1.0.0"
