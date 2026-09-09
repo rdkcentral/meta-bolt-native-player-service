@@ -13,6 +13,6 @@ do_patch[noexec] = "1"
 
 do_install() {
     install -d ${D}${libdir}
-    ln -s -r ${D}${libdir}/libocdmRialto.so.1 ${D}${libdir}/libocdm.so
+    ln -sf libocdmRialto.so.1 ${D}${libdir}/libocdm.so
     install -D -m 0644 ${WORKDIR}/ocdm.pc ${D}${libdir}/pkgconfig/ocdm.pc
 }

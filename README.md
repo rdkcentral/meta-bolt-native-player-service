@@ -29,7 +29,7 @@ documentation.
   layer root).
 ```
 git clone https://github.com/rdkcentral/meta-bolt-native-player-service
-cd meta-bolt-nativeplayer
+cd meta-bolt-native-player-service
 ```
 
 * Set up the build environment. This fetches `meta-bolt-distro` into `deps/bolt`

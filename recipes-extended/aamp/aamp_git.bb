@@ -58,7 +58,7 @@ EXTRA_OECMAKE += " -DCMAKE_BUILD_TYPE=Debug"
 # has impact here https://github.com/rdkcentral/aamp/blob/develop/CMakeLists.txt#L260
 EXTRA_OECMAKE += " -DCMAKE_INBUILT_AAMP_DEPENDENCIES=1"
 
-XTRA_OECMAKE += " -DCMAKE_WPEWEBKIT_WATERMARK_JSBINDINGS=0 "
+EXTRA_OECMAKE += " -DCMAKE_WPEWEBKIT_WATERMARK_JSBINDINGS=0 "
 PACKAGES = "${PN} ${PN}-dev ${PN}-dbg"
 
 FILES:${PN} += "${libdir}/lib*.so"
