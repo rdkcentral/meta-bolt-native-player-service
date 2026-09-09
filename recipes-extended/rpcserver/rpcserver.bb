@@ -3,8 +3,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=175792518e4ac015ab6696d16c4f607e"
 
 DEPENDS = "boost websocketpp jsoncpp jsonrpc"
-RDEPENDS_${PN} += "jsoncpp jsonrpc"
-
+RDEPENDS:${PN} += "jsoncpp jsonrpc"
 SRCREV = "dbbb22155599e74e36d767c922e7b420ac0d003e"
 
 SRC_URI = "git://github.com/rdkcentral/rpcserver;nobranch=1;protocol=https"
