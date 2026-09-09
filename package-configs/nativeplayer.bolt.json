@@ -1,0 +1,6 @@
+{
+  "config": "com.rdkcentral.nativeplayer.json",
+  "bitbake": {
+    "image": "nativeplayer-bolt-image"
+  }
+}

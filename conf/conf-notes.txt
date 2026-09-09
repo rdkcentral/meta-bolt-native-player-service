@@ -1,0 +1,7 @@
+
+  bitbake nativeplayer-bolt-image             # no multi config
+
+  bitbake mc:arm:nativeplayer-bolt-image   \
+          mc:arm64:nativeplayer-bolt-image \
+          mc:amd64:nativeplayer-bolt-image    # requires multi config
+
