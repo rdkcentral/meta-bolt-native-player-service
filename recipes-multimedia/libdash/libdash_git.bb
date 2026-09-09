@@ -27,7 +27,7 @@ SRC_URI = "git://github.com/bitmovin/libdash;branch=stable_3_0;protocol=https \
 
 S = "${WORKDIR}/git/libdash"
 DEPENDS += "libxml2 curl zlib"
-RDEPENDS_${PN} = "libxml2 curl zlib"
+RDEPENDS:${PN} = "libxml2 curl zlib"
 inherit pkgconfig cmake
 FILES:${PN} += "${libdir}/libdash.so"
 # Workaround to have dev so to ${PN}. Ideally, the recipe should generate the versioned so file for ${PN}
