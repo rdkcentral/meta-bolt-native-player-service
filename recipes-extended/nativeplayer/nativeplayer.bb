@@ -8,8 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b17644be83787a32dcf1830fa4b0c64b"
 
 PV = "1.0.0"
 
-SRC_URI = "git://github.com/rdkcentral/nativeplayerservice;nobranch=1;protocol=https \
-          file://0001-disable-closedcaptions.patch"
+SRC_URI = "git://github.com/rdkcentral/nativeplayerservice;nobranch=1;protocol=https"
 SRCREV = "7126639e5d43bcb200875dbf5142d30adad34be0"
 
 
