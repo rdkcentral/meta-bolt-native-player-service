@@ -4,10 +4,10 @@ Subject: RDK-32004: Added Low Latency Dash Element Processing
 Source: COMCAST
 Upstream-Status: Pending
 Signed-off-by: Lalit Arora <lalit_arora@comcast.com>
-diff --git a/libdash/include/IAdaptationSet.h b/libdash/include/IAdaptationSet.h
-index eff9c7e..b6938ef 100644
---- a/libdash/include/IAdaptationSet.h
-+++ b/libdash/include/IAdaptationSet.h
+Index: libdash/libdash/include/IAdaptationSet.h
+===================================================================
+--- libdash.orig/libdash/include/IAdaptationSet.h
++++ libdash/libdash/include/IAdaptationSet.h
 @@ -60,6 +60,8 @@
  #include "ISegmentTemplate.h"
  #include "IRepresentation.h"
@@ -17,11 +17,10 @@ index eff9c7e..b6938ef 100644
  
  namespace dash
  {
-@@ -145,6 +147,22 @@ namespace dash
-                  */
+@@ -146,6 +148,22 @@ namespace dash
                  virtual const std::vector<IRepresentation *>&   GetRepresentation               ()  const = 0;
  
-+                /**
+                 /**
 +                 *  Returns a reference to a vector of pointers to dash::mpd::IResync  objects that specifies a Resync .\n
 +                 *  At least one Resync  element shall be present in each Adaptation Set. The actual element may however be part of a remote element.\n
 +                 *  For more details refer to section 9.X.4.4. of <em>hhttps://dashif.org/docs/CR-Low-Latency-Live-r8.pdf</em>.
@@ -37,9 +36,10 @@ index eff9c7e..b6938ef 100644
 +                 */
 +                virtual const std::vector<IProducerReferenceTime *>&   GetProducerReferenceTime  ()  const = 0;
 +
-                 /**
++                /**
                   *  Returns a reference to a string that specifies a reference to external <tt><b>AdaptationSet</b></tt> element.
                   *  @return     a reference to a string
+                  */
 @@ -364,4 +382,4 @@ namespace dash
      }
  }
@@ -47,11 +47,10 @@ index eff9c7e..b6938ef 100644
 -#endif /* IADAPTATIONSET_H_ */
 \ No newline at end of file
 +#endif /* IADAPTATIONSET_H_ */
-diff --git a/libdash/include/ILatency.h b/libdash/include/ILatency.h
-new file mode 100644
-index 0000000..1a9601e
+Index: libdash/libdash/include/ILatency.h
+===================================================================
 --- /dev/null
-+++ b/libdash/include/ILatency.h
++++ libdash/libdash/include/ILatency.h
 @@ -0,0 +1,24 @@
 +#ifndef ILATENCY_H_
 +#define ILATENCY_H_
@@ -77,11 +76,10 @@ index 0000000..1a9601e
 +}
 +
 +#endif /* ILATENCY_H_ */
-diff --git a/libdash/include/IPlaybackRate.h b/libdash/include/IPlaybackRate.h
-new file mode 100644
-index 0000000..b0c7e62
+Index: libdash/libdash/include/IPlaybackRate.h
+===================================================================
 --- /dev/null
-+++ b/libdash/include/IPlaybackRate.h
++++ libdash/libdash/include/IPlaybackRate.h
 @@ -0,0 +1,23 @@
 +#ifndef IPLAYBACKRATE_H_
 +#define IPLAYBACKRATE_H_
@@ -106,11 +104,10 @@ index 0000000..b0c7e62
 +}
 +
 +#endif /* IPLAYBACKRATE_H_ */
-diff --git a/libdash/include/IProducerReferenceTime.h b/libdash/include/IProducerReferenceTime.h
-new file mode 100644
-index 0000000..33e7655
+Index: libdash/libdash/include/IProducerReferenceTime.h
+===================================================================
 --- /dev/null
-+++ b/libdash/include/IProducerReferenceTime.h
++++ libdash/libdash/include/IProducerReferenceTime.h
 @@ -0,0 +1,28 @@
 +#ifndef IPRODUCERREFERENCETIME_H_
 +#define IPRODUCERREFERENCETIME_H_
@@ -140,11 +137,10 @@ index 0000000..33e7655
 +}
 +
 +#endif /* IPRODUCERREFERENCETIME_H_ */
-diff --git a/libdash/include/IResync.h b/libdash/include/IResync.h
-new file mode 100644
-index 0000000..058a229
+Index: libdash/libdash/include/IResync.h
+===================================================================
 --- /dev/null
-+++ b/libdash/include/IResync.h
++++ libdash/libdash/include/IResync.h
 @@ -0,0 +1,23 @@
 +#ifndef IRESYNC_H_
 +#define IRESYNC_H_
@@ -169,11 +165,10 @@ index 0000000..058a229
 +}
 +
 +#endif /* IRESYNC_H_ */
-diff --git a/libdash/include/IScope.h b/libdash/include/IScope.h
-new file mode 100644
-index 0000000..a418d9e
+Index: libdash/libdash/include/IScope.h
+===================================================================
 --- /dev/null
-+++ b/libdash/include/IScope.h
++++ libdash/libdash/include/IScope.h
 @@ -0,0 +1,20 @@
 +#ifndef ISCOPE_H_
 +#define ISCOPE_H_
@@ -195,11 +190,10 @@ index 0000000..a418d9e
 +}
 +
 +#endif /* ISCOPE_H_ */
-diff --git a/libdash/include/IServiceDescription.h b/libdash/include/IServiceDescription.h
-new file mode 100644
-index 0000000..ab50be7
+Index: libdash/libdash/include/IServiceDescription.h
+===================================================================
 --- /dev/null
-+++ b/libdash/include/IServiceDescription.h
++++ libdash/libdash/include/IServiceDescription.h
 @@ -0,0 +1,28 @@
 +#ifndef ISERVICEDESCRIPTION_H_
 +#define ISERVICEDESCRIPTION_H_
@@ -229,12 +223,12 @@ index 0000000..ab50be7
 +}
 +
 +#endif /* ISERVICEDESCRIPTION_H_ */
-diff --git a/libdash/include/IUTCTiming.h b/libdash/include/IUTCTiming.h
-new file mode 100644
-index 0000000..79c2faf
+Index: libdash/libdash/include/IUTCTiming.h
+===================================================================
 --- /dev/null
-+++ b/libdash/include/IUTCTiming.h
-@@ -0,0 +1,37 @@
++++ libdash/libdash/include/IUTCTiming.h
+@@ -0,0 +1,38 @@
++/** Adapted from IDescriptor.h" */
 +#ifndef IUTCTIMING_H_
 +#define IUTCTIMING_H_
 +
@@ -272,10 +266,10 @@ index 0000000..79c2faf
 +}
 +
 +#endif /* IUTCTIMING_H_ */
-diff --git a/libdash/source/mpd/AdaptationSet.cpp b/libdash/source/mpd/AdaptationSet.cpp
-index b1a0331..4fa47d5 100644
---- a/libdash/source/mpd/AdaptationSet.cpp
-+++ b/libdash/source/mpd/AdaptationSet.cpp
+Index: libdash/libdash/source/mpd/AdaptationSet.cpp
+===================================================================
+--- libdash.orig/libdash/source/mpd/AdaptationSet.cpp
++++ libdash/libdash/source/mpd/AdaptationSet.cpp
 @@ -57,6 +57,10 @@ AdaptationSet::~AdaptationSet   ()
          delete(this->baseURLs.at(i));
      for(size_t i = 0; i < this->representation.size(); i++)
@@ -287,7 +281,7 @@ index b1a0331..4fa47d5 100644
  
      delete(segmentBase);
      delete(segmentList);
-@@ -143,6 +147,22 @@ void                                    AdaptationSet::AddRepresentation
+@@ -143,6 +147,22 @@ void
  {
      this->representation.push_back(representation);
  }
@@ -310,10 +304,10 @@ index b1a0331..4fa47d5 100644
  const std::string&                      AdaptationSet::GetXlinkHref                     ()  const
  {
      return this->xlinkHref;
-diff --git a/libdash/source/mpd/AdaptationSet.h b/libdash/source/mpd/AdaptationSet.h
-index 5a17cf4..2b01be7 100644
---- a/libdash/source/mpd/AdaptationSet.h
-+++ b/libdash/source/mpd/AdaptationSet.h
+Index: libdash/libdash/source/mpd/AdaptationSet.h
+===================================================================
+--- libdash.orig/libdash/source/mpd/AdaptationSet.h
++++ libdash/libdash/source/mpd/AdaptationSet.h
 @@ -22,6 +22,8 @@
  #include "SegmentTemplate.h"
  #include "ContentComponent.h"
@@ -350,11 +344,10 @@ index 5a17cf4..2b01be7 100644
                  std::string                     xlinkHref;
                  std::string                     xlinkActuate;
                  uint32_t                        id;
-diff --git a/libdash/source/mpd/Latency.cpp b/libdash/source/mpd/Latency.cpp
-new file mode 100644
-index 0000000..8598587
+Index: libdash/libdash/source/mpd/Latency.cpp
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/Latency.cpp
++++ libdash/libdash/source/mpd/Latency.cpp
 @@ -0,0 +1,38 @@
 +#include "Latency.h"
 +
@@ -394,11 +387,10 @@ index 0000000..8598587
 +{
 +    this->min = min;
 +}
-diff --git a/libdash/source/mpd/Latency.h b/libdash/source/mpd/Latency.h
-new file mode 100644
-index 0000000..065f34a
+Index: libdash/libdash/source/mpd/Latency.h
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/Latency.h
++++ libdash/libdash/source/mpd/Latency.h
 @@ -0,0 +1,34 @@
 +#ifndef LATENCY_H_
 +#define LATENCY_H_
@@ -434,10 +426,10 @@ index 0000000..065f34a
 +}
 +
 +#endif /* LATENCY_H_ */
-diff --git a/libdash/source/mpd/MPD.cpp b/libdash/source/mpd/MPD.cpp
-index 84e0e61..6f65ace 100644
---- a/libdash/source/mpd/MPD.cpp
-+++ b/libdash/source/mpd/MPD.cpp
+Index: libdash/libdash/source/mpd/MPD.cpp
+===================================================================
+--- libdash.orig/libdash/source/mpd/MPD.cpp
++++ libdash/libdash/source/mpd/MPD.cpp
 @@ -34,6 +34,10 @@ MPD::~MPD   ()
          delete(this->programInformations.at(i));
      for(size_t i = 0; i < this->metrics.size(); i++)
@@ -449,7 +441,7 @@ index 84e0e61..6f65ace 100644
      for(size_t i = 0; i < this->periods.size(); i++)
          delete(this->periods.at(i));
      for(size_t i = 0; i < this->baseUrls.size(); i++)
-@@ -64,6 +68,22 @@ void                                        MPD::AddLocation
+@@ -64,6 +68,22 @@ void
  {
      this->locations.push_back(location);
  }
@@ -472,10 +464,10 @@ index 84e0e61..6f65ace 100644
  const std::vector<IPeriod*>&                MPD::GetPeriods                         () const 
  {
      return (std::vector<IPeriod*> &) this->periods;
-diff --git a/libdash/source/mpd/MPD.h b/libdash/source/mpd/MPD.h
-index 9bcb38a..a0d5ce0 100644
---- a/libdash/source/mpd/MPD.h
-+++ b/libdash/source/mpd/MPD.h
+Index: libdash/libdash/source/mpd/MPD.h
+===================================================================
+--- libdash.orig/libdash/source/mpd/MPD.h
++++ libdash/libdash/source/mpd/MPD.h
 @@ -17,6 +17,8 @@
  #include "IMPD.h"
  #include "ProgramInformation.h"
@@ -512,11 +504,10 @@ index 9bcb38a..a0d5ce0 100644
                  std::vector<Period *>               periods;
                  std::vector<Metrics *>              metrics;
                  std::string                         id;
-diff --git a/libdash/source/mpd/PlaybackRate.cpp b/libdash/source/mpd/PlaybackRate.cpp
-new file mode 100644
-index 0000000..72b6be2
+Index: libdash/libdash/source/mpd/PlaybackRate.cpp
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/PlaybackRate.cpp
++++ libdash/libdash/source/mpd/PlaybackRate.cpp
 @@ -0,0 +1,29 @@
 +#include "PlaybackRate.h"
 +
@@ -547,11 +538,10 @@ index 0000000..72b6be2
 +{
 +    this->min = min;
 +}
-diff --git a/libdash/source/mpd/PlaybackRate.h b/libdash/source/mpd/PlaybackRate.h
-new file mode 100644
-index 0000000..4f381e2
+Index: libdash/libdash/source/mpd/PlaybackRate.h
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/PlaybackRate.h
++++ libdash/libdash/source/mpd/PlaybackRate.h
 @@ -0,0 +1,31 @@
 +#ifndef PLAYBACKRATE_H_
 +#define PLAYBACKRATE_H_
@@ -584,11 +574,10 @@ index 0000000..4f381e2
 +}
 +
 +#endif /* PLAYBACKRATE_H_ */
-diff --git a/libdash/source/mpd/ProducerReferenceTime.cpp b/libdash/source/mpd/ProducerReferenceTime.cpp
-new file mode 100644
-index 0000000..3180726
+Index: libdash/libdash/source/mpd/ProducerReferenceTime.cpp
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/ProducerReferenceTime.cpp
++++ libdash/libdash/source/mpd/ProducerReferenceTime.cpp
 @@ -0,0 +1,62 @@
 +#include "ProducerReferenceTime.h"
 +
@@ -653,11 +642,10 @@ index 0000000..3180726
 +	this->inband = inband;
 +}
 \ No newline at end of file
-diff --git a/libdash/source/mpd/ProducerReferenceTime.h b/libdash/source/mpd/ProducerReferenceTime.h
-new file mode 100644
-index 0000000..55144bf
+Index: libdash/libdash/source/mpd/ProducerReferenceTime.h
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/ProducerReferenceTime.h
++++ libdash/libdash/source/mpd/ProducerReferenceTime.h
 @@ -0,0 +1,44 @@
 +#ifndef PRODUCERREFERENCETIME_H_
 +#define PRODUCERREFERENCETIME_H_
@@ -703,11 +691,10 @@ index 0000000..55144bf
 +}
 +
 +#endif /* PRODUCERREFERENCETIME_H_ */
-diff --git a/libdash/source/mpd/Resync.cpp b/libdash/source/mpd/Resync.cpp
-new file mode 100644
-index 0000000..4360a53
+Index: libdash/libdash/source/mpd/Resync.cpp
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/Resync.cpp
++++ libdash/libdash/source/mpd/Resync.cpp
 @@ -0,0 +1,29 @@
 +#include "Resync.h"
 +
@@ -738,11 +725,10 @@ index 0000000..4360a53
 +{
 +    this->dT = dT;
 +}
-diff --git a/libdash/source/mpd/Resync.h b/libdash/source/mpd/Resync.h
-new file mode 100644
-index 0000000..d51a5b2
+Index: libdash/libdash/source/mpd/Resync.h
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/Resync.h
++++ libdash/libdash/source/mpd/Resync.h
 @@ -0,0 +1,32 @@
 +#ifndef RESYNC_H_
 +#define RESYNC_H_
@@ -776,11 +762,10 @@ index 0000000..d51a5b2
 +}
 +
 +#endif /* RESYNC_H_ */
-diff --git a/libdash/source/mpd/Scope.cpp b/libdash/source/mpd/Scope.cpp
-new file mode 100644
-index 0000000..e378bee
+Index: libdash/libdash/source/mpd/Scope.cpp
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/Scope.cpp
++++ libdash/libdash/source/mpd/Scope.cpp
 @@ -0,0 +1,11 @@
 +#include "Scope.h"
 +
@@ -793,11 +778,10 @@ index 0000000..e378bee
 +{
 +}
 +
-diff --git a/libdash/source/mpd/Scope.h b/libdash/source/mpd/Scope.h
-new file mode 100644
-index 0000000..8fe71d7
+Index: libdash/libdash/source/mpd/Scope.h
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/Scope.h
++++ libdash/libdash/source/mpd/Scope.h
 @@ -0,0 +1,22 @@
 +#ifndef SCOPE_H_
 +#define SCOPE_H_
@@ -821,11 +805,10 @@ index 0000000..8fe71d7
 +}
 +
 +#endif /* SCOPE_H_ */
-diff --git a/libdash/source/mpd/ServiceDescription.cpp b/libdash/source/mpd/ServiceDescription.cpp
-new file mode 100644
-index 0000000..80bf8ac
+Index: libdash/libdash/source/mpd/ServiceDescription.cpp
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/ServiceDescription.cpp
++++ libdash/libdash/source/mpd/ServiceDescription.cpp
 @@ -0,0 +1,53 @@
 +#include "ServiceDescription.h"
 +
@@ -880,11 +863,10 @@ index 0000000..80bf8ac
 +{
 +    this->playbackRates.push_back(playbackRate);
 +}
-diff --git a/libdash/source/mpd/ServiceDescription.h b/libdash/source/mpd/ServiceDescription.h
-new file mode 100644
-index 0000000..755db97
+Index: libdash/libdash/source/mpd/ServiceDescription.h
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/ServiceDescription.h
++++ libdash/libdash/source/mpd/ServiceDescription.h
 @@ -0,0 +1,41 @@
 +#ifndef SERVICEDESCRIPTION_H_
 +#define SERVICEDESCRIPTION_H_
@@ -927,11 +909,10 @@ index 0000000..755db97
 +}
 +
 +#endif /* SERVICEDESCRIPTION_H_ */
-diff --git a/libdash/source/mpd/UTCTiming.cpp b/libdash/source/mpd/UTCTiming.cpp
-new file mode 100644
-index 0000000..68727cf
+Index: libdash/libdash/source/mpd/UTCTiming.cpp
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/UTCTiming.cpp
++++ libdash/libdash/source/mpd/UTCTiming.cpp
 @@ -0,0 +1,28 @@
 +#include "UTCTiming.h"
 +
@@ -961,11 +942,10 @@ index 0000000..68727cf
 +{
 +    this->value = value;
 +}
-diff --git a/libdash/source/mpd/UTCTiming.h b/libdash/source/mpd/UTCTiming.h
-new file mode 100644
-index 0000000..9695fd8
+Index: libdash/libdash/source/mpd/UTCTiming.h
+===================================================================
 --- /dev/null
-+++ b/libdash/source/mpd/UTCTiming.h
++++ libdash/libdash/source/mpd/UTCTiming.h
 @@ -0,0 +1,32 @@
 +#ifndef UTCTIMING_H_
 +#define UTCTIMING_H_
@@ -999,11 +979,11 @@ index 0000000..9695fd8
 +}
 +
 +#endif /* UTCTIMING_H_ */
-diff --git a/libdash/source/xml/Node.cpp b/libdash/source/xml/Node.cpp
-index 9164332..c02eeae 100644
---- a/libdash/source/xml/Node.cpp
-+++ b/libdash/source/xml/Node.cpp
-@@ -93,6 +93,108 @@ dash::mpd::BaseUrl*                         Node::ToBaseUrl             ()  cons
+Index: libdash/libdash/source/xml/Node.cpp
+===================================================================
+--- libdash.orig/libdash/source/xml/Node.cpp
++++ libdash/libdash/source/xml/Node.cpp
+@@ -93,6 +93,108 @@ dash::mpd::BaseUrl*
      baseUrl->AddRawAttributes(this->attributes);
      return baseUrl;
  }
@@ -1112,7 +1092,7 @@ index 9164332..c02eeae 100644
  dash::mpd::Descriptor*                      Node::ToDescriptor          ()  const
  {
      dash::mpd::Descriptor *descriptor = new dash::mpd::Descriptor();
-@@ -429,6 +531,43 @@ dash::mpd::Representation*                  Node::ToRepresentation      ()  cons
+@@ -429,6 +531,43 @@ dash::mpd::Representation*
      representation->AddRawAttributes(this->attributes);
      return representation;
  }
@@ -1156,7 +1136,7 @@ index 9164332..c02eeae 100644
  dash::mpd::AdaptationSet*                   Node::ToAdaptationSet       ()  const
  {
      dash::mpd::AdaptationSet *adaptationSet = new dash::mpd::AdaptationSet();
-@@ -565,6 +704,16 @@ dash::mpd::AdaptationSet*                   Node::ToAdaptationSet       ()  cons
+@@ -565,6 +704,16 @@ dash::mpd::AdaptationSet*
              adaptationSet->AddRepresentation(subNodes.at(i)->ToRepresentation());
              continue;
          }
@@ -1173,7 +1153,7 @@ index 9164332..c02eeae 100644
          if (subNodes.at(i)->GetName() != "FramePacking" && subNodes.at(i)->GetName() != "AudioChannelConfiguration" && subNodes.at(i)->GetName() != "ContentProtection")
              adaptationSet->AddAdditionalSubNode((xml::INode *) new Node(*(subNodes.at(i))));
      }
-@@ -765,6 +914,16 @@ dash::mpd::MPD*                             Node::ToMPD                 ()  cons
+@@ -829,6 +978,16 @@ dash::mpd::MPD*
              mpd->AddLocation(subNodes.at(i)->GetText());
              continue;
          }
@@ -1190,10 +1170,10 @@ index 9164332..c02eeae 100644
          if (subNodes.at(i)->GetName() == "Period")
          {
              mpd->AddPeriod(subNodes.at(i)->ToPeriod());
-diff --git a/libdash/source/xml/Node.h b/libdash/source/xml/Node.h
-index 552d83e..508cb99 100644
---- a/libdash/source/xml/Node.h
-+++ b/libdash/source/xml/Node.h
+Index: libdash/libdash/source/xml/Node.h
+===================================================================
+--- libdash.orig/libdash/source/xml/Node.h
++++ libdash/libdash/source/xml/Node.h
 @@ -18,6 +18,8 @@
  #include "../helpers/String.h"
  #include "../mpd/AdaptationSet.h"
@@ -1203,7 +1183,7 @@ index 552d83e..508cb99 100644
  #include "../mpd/ContentComponent.h"
  #include "../mpd/Descriptor.h"
  #include "../mpd/Metrics.h"
-@@ -74,6 +76,11 @@ namespace dash
+@@ -76,6 +78,11 @@ namespace dash
                  void                                        SetCommonValuesForMSeg  (dash::mpd::MultipleSegmentBase& object) const;
                  dash::mpd::AdaptationSet*                   ToAdaptationSet         ()  const;
                  dash::mpd::BaseUrl*                         ToBaseUrl               ()  const;
@@ -1215,7 +1195,7 @@ index 552d83e..508cb99 100644
                  dash::mpd::ContentComponent*                ToContentComponent      ()  const;
                  dash::mpd::Descriptor*                      ToDescriptor            ()  const;
                  dash::mpd::Metrics*                         ToMetrics               ()  const;
-@@ -81,6 +88,8 @@ namespace dash
+@@ -83,6 +90,8 @@ namespace dash
                  dash::mpd::ProgramInformation*              ToProgramInformation    ()  const;
                  dash::mpd::Range*                           ToRange                 ()  const;
                  dash::mpd::Representation*                  ToRepresentation        ()  const;

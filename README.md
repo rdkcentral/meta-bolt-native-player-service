@@ -1,4 +1,4 @@
-# meta-bolt-nativeplayer
+# meta-bolt-native-player-service
 
 A bitbake meta layer for building a Firebolt **bolt** application.
 

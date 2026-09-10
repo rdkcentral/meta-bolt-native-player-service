@@ -17,15 +17,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-test -f .env && source $_
+BASE_DIR=$(readlink -m "$(dirname "${BASH_SOURCE[0]}")")
+test -f "${BASE_DIR}/.env" && source "${BASE_DIR}/.env" || true
 
 set -e
 
-BASE_DIR=$(readlink -m "$(dirname "${BASH_SOURCE[0]}")")
 MANIFEST="${BASE_DIR}/manifests/deps.xml"
 
-mkdir -p deps
-pushd $_
-repo init --standalone-manifest --manifest-url="file://${MANIFEST}" ${BOLT_REPO_INIT_PARAMS}
-repo sync ${BOLT_REPO_SYNC_PARAMS}
+mkdir -p "${BASE_DIR}/deps"
+pushd "${BASE_DIR}/deps"
+repo init --standalone-manifest --manifest-url="file://${MANIFEST}" "${BOLT_REPO_INIT_PARAMS}"
+repo sync "${BOLT_REPO_SYNC_PARAMS}"
 popd

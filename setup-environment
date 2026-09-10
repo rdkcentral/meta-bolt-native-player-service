@@ -17,10 +17,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-test -f .env && source $_ || true
+test -f .env && source .env || true
 
 BOLT_LAYER_DIR=$(readlink -m "$(dirname "${BASH_SOURCE[0]}")")
-BOLT_SETUP_SCRIPT=deps/bolt/setup-environment
+
+test -f "${BOLT_LAYER_DIR}/.env" && source "${BOLT_LAYER_DIR}/.env" || true
+BOLT_SETUP_SCRIPT="${BOLT_LAYER_DIR}/deps/bolt/setup-environment"
 
 if [ ! -f "${BOLT_SETUP_SCRIPT}" ]; then
   "${BOLT_LAYER_DIR}/repo-sync"

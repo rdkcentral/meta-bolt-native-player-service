@@ -8,17 +8,17 @@
     "com.rdkcentral.base": "0.3.1"
   },
   "permissions": [
-	  "urn:rdk:permission:firebolt",
-	  "urn:rdk:permission:internet"
+    "urn:rdk:permission:firebolt",
+    "urn:rdk:permission:internet"
   ],
   "configuration": {
-	  "urn:rdk:config:network": [
-	  {
+    "urn:rdk:config:network": [
+      {
         "name": "com.rdkcentral.nativeplayer",
         "port": 10101,
         "protocol": "tcp",
         "type": "exported"
       }
-	  ]
+    ]
   }
 }
