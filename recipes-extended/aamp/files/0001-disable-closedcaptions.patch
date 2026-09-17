@@ -1,0 +1,22 @@
+Date: Thu 10 Sep 2026 01:22:08 PM 
+Source: RDKM
+From : Josekutty Kuriakose <josekutty_kuriakose@cable.comcast.com>
+
+
+Index: git/middleware/InterfacePlayerRDK.cpp
+===================================================================
+--- git.orig/middleware/InterfacePlayerRDK.cpp
++++ git/middleware/InterfacePlayerRDK.cpp
+@@ -449,9 +449,12 @@ void InterfacePlayerRDK::ConfigurePipeli
+ 				 newClosedCaptionsControl &&
+ 				 !interfacePlayerPriv->gstPrivateContext->usingClosedCaptionsControl)
+ 		{
++			MW_LOG_ERR("Skipping closed captions control stream");
++/*
+ 			TearDownStream(eGST_MEDIATYPE_SUBTITLE);
+ 			interfacePlayerPriv->gstPrivateContext->usingClosedCaptionsControl = true;
+ 			SetupClosedCaptionControlStream();
++*/
+ 		}
+ 	}
+ 	if ((interfacePlayerPriv->gstPrivateContext->usingRialtoSink) && (m_gstConfigParam->media != eGST_MEDIAFORMAT_PROGRESSIVE))
