@@ -86,7 +86,7 @@ Use `bolt push` and `bolt run` as described in their help pages —
 `<remote>` is the hostname or alias of a device reachable over SSH in
 non-interactive mode.
 ```
-bolt push <remote> com.rdkcentral.base+0.3.1
+bolt push <remote> com.rdkcentral.base+<<version>>
 bolt push <remote> com.rdkcentral.nativeplayer+*
 
 bolt run  <remote> com.rdkcentral.nativeplayer+*
@@ -103,7 +103,7 @@ version the app depends on (see `dependencies` in
 `package-configs/com.rdkcentral.nativeplayer.json`), for example:
 ```xml
 <project remote="rdkcentral" name="meta-bolt-distro"
-         upstream="main" revision="refs/tags/0.2.0" path="bolt"/>
+         upstream="main" revision="refs/tags/<<version>>" path="bolt"/>
 ```
 During development, a revision of a development version may be used as well,
 for example a commit SHA on the `develop` branch:
