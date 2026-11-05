@@ -1,6 +1,6 @@
 {
   "id": "com.rdkcentral.nativeplayer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "nativeplayer",
   "packageType": "service",
   "entryPoint": "/usr/bin/nativeplayer",
