@@ -6,10 +6,10 @@ SECTION = "apps"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b17644be83787a32dcf1830fa4b0c64b"
 
-PV = "0.1.0"
+PV = "0.1.1"
 
 SRC_URI = "git://github.com/rdkcentral/nativeplayerservice;nobranch=1;protocol=https"
-SRCREV = "56ba3a8f0308fc9ccd57b81b9a34f9416546ec75"
+SRCREV = "0a2a7d3bcd415217eacce6b5a57e5e59d4ffacc3"
 
 
 S = "${WORKDIR}/git"
