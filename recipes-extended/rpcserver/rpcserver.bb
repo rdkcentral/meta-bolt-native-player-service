@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=175792518e4ac015ab6696d16c4f607e"
 
 DEPENDS = "boost websocketpp jsoncpp jsonrpc"
 RDEPENDS:${PN} += "jsoncpp jsonrpc"
-SRCREV = "dbbb22155599e74e36d767c922e7b420ac0d003e"
+SRCREV = "c9966b73f3d75afbfc2312b6e45d950bad84f56a"
 
 SRC_URI = "git://github.com/rdkcentral/rpcserver;nobranch=1;protocol=https"
 
